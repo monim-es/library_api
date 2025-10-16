@@ -7,13 +7,10 @@ class BookSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-
-# from django.contrib.auth.models import User
-
 class TransactionSerializer(serializers.ModelSerializer):
     user = serializers.StringRelatedField(read_only=True)
     book = serializers.StringRelatedField(read_only=True)
 
     class Meta:
         model = Transaction
-        fields = ['id', 'user', 'book', 'checkout_date', 'return_date', 'returned']
+        fields = ['id', 'user', 'book', 'checked_out_at', 'returned_at', 'status']
